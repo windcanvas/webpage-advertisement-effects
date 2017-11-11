@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	    * {
+	    	padding: 0;
+	    	margin: 0;
+	    }
+        .content {
+        	width: 960px;
+        	height: 1440px;
+        	background: #efefef;
+        	color: #000;
+        	font-size: 36px;
+        	text-align: center;
+        	margin: 0 auto;
+        	position: relative;
+        }
+
+		.rightAd {
+			width: 400px;
+			height: 300px;
+			background: #ccc;
+			position: fixed;/*fixed相对于浏览器固定定位*/
+			right: 0;
+			bottom: 0;
+		}
+
+		.pic {
+			position: relative;
+		}
+        
+        /*按钮closeBtn的样式*/
+		.pic a#closeBtn {
+			background: url(../image/icon.jpg) no-repeat -399px -19px;
+			width: 16px;
+			height: 16px;
+			display: inline-block;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+
+		.pic a#closeBtn:hover {
+			background-position: -343px -19px;
+		}
+
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<img src="../image/demo.jpg" width="960"/>
+	</div>
+	<div class="rightAd" id="tipCon">
+		<div class="pic">
+			<a href="http://imooc.com">
+				<img src="../image/snow.gif">
+			</a>
+			<a href="javascript:void(0);" id="closeBtn"></a>
+		</div>		
+	</div>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var TipBox = document.getElementById("tipCon");
+	    var CloseBtn = document.getElementById("closeBtn");
+
+	    CloseBtn.onclick = function() {
+	    	//TipBox.style.display = "none";//改变显示属性
+	    	TipBox.className = 'hide';
+	    }
+	}
+</script>
+</body>
+</html>
