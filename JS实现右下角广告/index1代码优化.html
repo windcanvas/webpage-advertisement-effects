@@ -20,7 +20,7 @@
 			position: relative;
 		}
 
-		.tipCon {
+		.tipCon {	/*利用css的position属性定位广告显示的位置*/
 			position: fixed;
 			background: #efefef;
 			color: #000;
@@ -37,7 +37,7 @@
 		}
 
 		.showPic {
-			display: none;
+			display: none;/* 初始为隐藏，可以改变初始效果*/
 		}
 
 		.clickMe {
@@ -59,11 +59,11 @@
 		}
 
 		/*代码优化*/
-		.show{
-			display: block;
+		#tipCon .show{
+			display: block;/*要注意css的样式优先级 要在.show之前加上 #tipCon*/
 		}
 
-		.hide{
+		#tipCon .hide{
 			display: none;
 		}
 	</style>
@@ -86,8 +86,8 @@
 	// 代码优化
 	window.onload = function() {
 
-		var $ = function(id) {
-			return document.getElementById(id);
+		var $ = function(id) { //定义传参控件：这样写相当于定义了一个通用方法，只要传一个参数进去，就能取到对应的控件，不用每次都document.getElementById("id")这样写
+			return document.getElementById(id);//return就是执行完$这个方法，就能得到一个控件的引用，如果没有return，那就是不能拿到控件的引用了
 		}
 
 		/*
@@ -97,22 +97,21 @@
 		var closeBtn = $("closeBtn");
 		*/
 
-		$("clickMe").onmouseover = function() {
+		$("clickMe").onmouseover = function() { //鼠标划过事件
 			/*
 			$("showPic").style.display = 'block';
 			$("closeBtn").style.display = 'block';
 			*/
-
-			$("showPic").className = 'show';
+            $("showPic").className = 'show';
 			$("closeBtn").className = 'show';
 		}
 
-		$("closeBtn").onclick = function() {
+		$("closeBtn").onclick = function() {//鼠标点击事件
 			/*
 			$("showPic").style.display = 'none';
 			$("closeBtn").style.display = 'none';
 			*/
-			
+
 			$("showPic").className = 'hide';
 			$("closeBtn").className = 'hide';
 		}
