@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS实现伸缩式右下角广告</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.content {
+			width: 960px;
+			height: 1440px;
+			background: #ccc;
+			color: #000;
+			font-size: 36px;
+			text-align: center;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.tipCon {
+			position: fixed;
+			background: #efefef;
+			color: #000;
+			font-size: 16px;
+			text-align: center;
+			bottom: 0;
+			right: 0;
+		}
+
+		.clickMe {
+			height: 24px;
+			background: #CCC;
+			line-height: 24px;
+		}
+
+		.showPic {
+			display: none;
+		}
+
+		.clickMe {
+			position: relative;
+		}
+
+		.clickMe a{
+			background: url(../image/icon.jpg) no-repeat -339px -19px;
+			width: 16px;
+			height: 16px;
+			display: none;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+
+		.clickMe a:hover{
+			background-position: -343px -19px;
+		}
+
+		/*代码优化*/
+		.show{
+			display: block;
+		}
+
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">网页内容</div>
+
+    <div class="tipCon" id="tipCon">
+        <div class="clickMe" id="clickMe">
+        	猜猜我有啥？
+        	<a href="javascript:void(0);" id="closeBtn"></a>
+        </div>
+
+        <div class="showPic" id="showPic">
+        	<img src="../image/snow.gif"/>
+        </div>
+    </div>
+
+<script type="text/javascript">
+	// 代码优化
+	window.onload = function() {
+
+		var $ = function(id) {
+			return document.getElementById(id);
+		}
+
+		/*
+		var TipBox = $("tipCon");
+		var ClickMe = $("clickMe");
+		var showPic = $("showPic");
+		var closeBtn = $("closeBtn");
+		*/
+
+		$("clickMe").onmouseover = function() {
+			/*
+			$("showPic").style.display = 'block';
+			$("closeBtn").style.display = 'block';
+			*/
+
+			$("showPic").className = 'show';
+			$("closeBtn").className = 'show';
+		}
+
+		$("closeBtn").onclick = function() {
+			/*
+			$("showPic").style.display = 'none';
+			$("closeBtn").style.display = 'none';
+			*/
+			
+			$("showPic").className = 'hide';
+			$("closeBtn").className = 'hide';
+		}
+	}
+</script>
+</body>
+</html>
