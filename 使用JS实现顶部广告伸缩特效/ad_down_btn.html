@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部广告展开收起</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#content {
+			width: 960px;
+			height: 1000px;
+			background: #ccc;
+			margin: 0 auto;
+		}
+
+		#ad {
+			width: 960px;
+			margin: 0 auto;
+			display: none;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#close {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			line-height: 20px;
+			background: #CF3;
+			top: 0;
+			right: 0;
+			display: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="ad">
+		<img id="adcon" src="ad.png" width="960" height="385">
+		<img id="adcur" src="cur.png" width="960" height="68">
+		<span id="close">X</span>
+	</div>
+	<div id="content">
+		<img src="数字商品-10-23.jpg"/>
+	</div>
+
+<script type="text/javascript">
+//全局变量
+/*
+var oAd    = document.getElementById('ad');
+var oAdcon = document.getElementById('adcon');
+var oClose = document.getElementById('close');
+*/
+
+var getId = function(id){
+	return document.getElementById(id);
+}
+
+var maxH = getId('adcon').height;//最大高度
+var minH = getId('adcur').height;//最小高度
+var step = 5;//移动的距离
+var h    = 0;
+
+/*广告向下展开*/
+function adDown() {
+    if(h<maxH){
+        h += step;//向下移动
+        setTimeout(adDown, 1);
+    }else{
+        setTimeout(adUp, 3000);//停留时间自己适当调整 1000 = 1秒
+    }
+    getId('ad').style.display = "block";
+    getId('ad').style.height = h + "px";
+}
+
+/*广告向上收起*/
+function adUp(){
+    if(h>minH){//判断广告大图高度h是否大于小图高度minH
+    	h -= step;
+    	setTimeout(adUp, 1);
+    }else{
+    	getId('adcon').style.display = "none";
+    	getId('close').style.display = "block";
+    }
+}
+
+getId('close').onclick = function() {
+    getId('ad').style.display = "none";
+}
+
+setTimeout(adDown, 3000);
+</script>
+</body>
+</html>

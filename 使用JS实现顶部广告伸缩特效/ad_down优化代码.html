@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部广告展开收起</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#content {
+			width: 960px;
+			height: 1000px;
+			background: #ccc;
+			margin: 0 auto;
+		}
+
+		#ad {
+			width: 960px;
+			margin: 0 auto;
+			display: none;
+			position: relative;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="ad">
+		<img id="adcon" src="ad.png" width="960" height="385">
+	</div>
+	<div id="content">
+		<img src="数字商品-10-23.jpg"/>
+	</div>
+
+<script type="text/javascript">
+//全局变量
+var oAd    = document.getElementById('ad');
+var oAdcon = document.getElementById('adcon');
+
+var h = 0;
+var step = 5;
+var maxH = oAdcon.height;
+function adDown() {
+	oAd.style.height = h + 'px';
+    oAd.style.display = 'block';
+    if(h<maxH){
+        h+=step;
+        setTimeout(adDown, 1);
+    }else{
+        setTimeout(adUp, 3000);
+    }
+}
+
+function adUp(){
+    if(h>0){
+    	h-=step;
+    	oAd.style.height = h +'px';
+    	setTimeout(adUp, 1);
+    }
+}
+
+setTimeout(adDown, 3000);
+</script>
+</body>
+</html>
