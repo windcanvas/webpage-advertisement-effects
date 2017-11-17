@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>豆瓣音乐运动</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+        
+        /*广告主题部分*/
+		.dbmove {
+			background: url(img/adhover.png) no-repeat 0 0;
+			width: 283px;
+			height: 60px;
+			float: left;
+		}
+
+		/*广告隐藏按钮样式*/
+		.dbhide {
+			background: url(img/adhover.png) no-repeat -151px 0;
+			width: 45px;
+			height: 60px;
+			float: left;
+			display: none;
+		}
+
+		/*广告显示按钮样式*/
+		.dbshow {
+			background: url(img/adhover.png) no-repeat -175px 0;
+			width: 45px;
+			height: 60px;
+			float: left;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div class="dbmove" id="dbmove"></div>
+	<a href="javascript:void(0)" class="dbhide" id="dbhide"></a>
+	<a href="javascript:void(0)" class="dbshow" id="dbshow"></a>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#dbshow').click(function() {
+			$(this).hide();
+			$('#dbmove').animate({width: 150}, 500, function() {
+				$('#dbhide').show();
+			})
+		})
+	$('#dbhide').click(function() {
+		$(this).hide();
+        $('#dbmove').animate({width: 0}, 500, function() {
+        	$('#dbshow').show();
+        });
+	})
+})
+</script>
+</body>
+</body>
+</html>

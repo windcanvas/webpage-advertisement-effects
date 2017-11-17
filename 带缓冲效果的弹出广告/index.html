@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>豆瓣音乐运动</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+        
+        /*广告主题部分*/
+		.dbmove {
+			background: url(img/adhover.png) no-repeat 0 0;
+			width: 0;
+			height: 33px;
+			float: left;
+		}
+
+		/*广告隐藏按钮样式*/
+		.dbhide {
+			background: url(img/adhover.png) no-repeat -151px 0;
+			width: 23px;
+			height: 33px;
+			float: left;
+			display: none;
+		}
+
+		/*广告显示按钮样式*/
+		.dbshow {
+			background: url(img/adhover.png) no-repeat -175px 0;
+			width: 33px;
+			height: 33px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="dbmove" id="dbmove"></div>
+	<a href="javascript:void(0)" class="dbhide" id="dbhide"></a>
+	<a href="javascript:void(0)" class="dbshow" id="dbshow"></a>
+
+<script type="text/javascript" src="move.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var dbMove = document.getElementById('dbmove'),
+		    dbHide = document.getElementById('dbhide'),
+		    dbShow = document.getElementById('dbshow');
+
+		dbShow.onclick = function() {
+			dbShow.style.display = 'none';
+			startMove(dbMove, {width: 150}, function() {
+				dbHide.style.display = 'block';
+			})
+		}
+		dbHide.onclick = function() {
+			dbHide.style.display = 'none';
+			startMove(dbMove, {width: 0}, function() {
+				dbShow.style.display = 'block';
+			})
+		}
+	}
+</script>
+</body>
+</body>
+</html>
