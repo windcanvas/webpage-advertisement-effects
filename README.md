@@ -21,7 +21,7 @@ a href="javascript:js_method();"```
 
 
 ```
-position: fixed;
+position: fixed;//相对浏览器窗口固定位置
 bottom: 0;
 right: 0;
 ```
@@ -58,7 +58,7 @@ var $ = function(id) {
 
 ### 在样式表里定义两个样式，显示与隐藏
 
-提示: ```className```改变显示与隐藏
+提示: ```className```改变显示与隐藏  className（添加样式）
 
 注意：页面初次加载时，右下角广告是隐藏状态
 
